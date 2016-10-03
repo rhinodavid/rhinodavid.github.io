@@ -19,9 +19,9 @@ var RainbowCircle = function() {
   
 
   this.path = [];
-  this.count = 40;//randInt(10, 60);
+  this.count = 20;//randInt(10, 60);
   this.hue = 0;
-  this.radius = 70;
+  this.radius = 40;
   this.theta = rand(0, Math.PI * 2); // angle of new paths relative to center
   this.thetaSpeed = Math.PI / 20; // speed of the 'sweep'
   this.clockwise = 1; // -1 for counterclockwise
@@ -32,12 +32,12 @@ var RainbowCircle = function() {
 
 RainbowCircle.prototype.draw = function(i) {
   ctx.beginPath();
-  var rando = rand(1, 7);
+  var rando = rand(1, 4);
   for (var j = 0, length = this.path.length; j < length; j++ ) {
     ctx[(j === 0) ? 'moveTo' : 'lineTo' ](this.path[j].x + rand(-rando, rando), this.path[j].y + rand(-rando, rando));
   }
-  ctx.strokeStyle = 'hsla(' + rand(this.hue, this.hue + 10) + ', 45%, 25%, .6)';
-  ctx.lineWidth = rand(0.1, 4);
+  ctx.strokeStyle = 'hsla(' + rand(this.hue, this.hue + 10) + ', 45%, 35%, .6)';
+  ctx.lineWidth = rand(0.1, 2);
   ctx.stroke();
 
   // debugging angle
@@ -72,7 +72,7 @@ RainbowCircle.prototype.step = function(i) {
   }
 
   // make the orb to 'breathe'
-  instantaneousRadius = this.radius + Math.cos(tick / 20 % (Math.PI * 2)) * this.radius / 6;
+  instantaneousRadius = this.radius + Math.cos(tick / 20 % (Math.PI * 2)) * this.radius / 8;
 
   
   this.path.push({
