@@ -32,12 +32,12 @@ var RainbowCircle = function() {
 
 RainbowCircle.prototype.draw = function(i) {
   ctx.beginPath();
-  var rando = rand(1, 7);
+  var rando = rand(1, 5);
   for (var j = 0, length = this.path.length; j < length; j++ ) {
     ctx[(j === 0) ? 'moveTo' : 'lineTo' ](this.path[j].x + rand(-rando, rando), this.path[j].y + rand(-rando, rando));
   }
-  ctx.strokeStyle = 'hsla(' + rand(this.hue, this.hue + 10) + ', 45%, 25%, .6)';
-  ctx.lineWidth = rand(0.1, 3);
+  ctx.strokeStyle = 'hsla(' + rand(this.hue, this.hue + 10) + ', 45%, 35%, .4)';
+  ctx.lineWidth = rand(0.1, 2.5);
   ctx.stroke();
 };
 
