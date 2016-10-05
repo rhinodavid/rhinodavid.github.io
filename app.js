@@ -56,7 +56,7 @@ var clear = function() {
   ctx.globalCompositeOperation = 'destination-out';
   ctx.fillStyle = 'hsla(0, 0%, 0%, 0.1';
   ctx.fillRect(0, 0, width, height);
-  ctx.globalCompositeOperation = 'lighter';
+  //ctx.globalCompositeOperation = 'lighter';
 };
 
 var loop = function() {
